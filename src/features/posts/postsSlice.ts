@@ -12,13 +12,17 @@ export interface Post {
 
 export interface PostsState {
   posts: Post[];
+  filteredPosts: Post[];
   status: "idle" | "loading" | "failed";
+  searchText: string;
 }
 
 // create initial state with default values
 const initialState: PostsState = {
   posts: [],
+  filteredPosts: [],
   status: "idle",
+  searchText: "",
 };
 
 // createAsyncThunk
@@ -37,8 +41,11 @@ export const postsSlice = createSlice({
   name: "posts",
   initialState,
   reducers: {
-    deleteAllPosts: (state) => {
-      state.posts = [];
+    setSearch: (state, action) => {
+      state.searchText = action.payload;
+      state.filteredPosts = state.posts.filter(({ title }) => {
+        return title.toLowerCase().includes(state.searchText.toLowerCase());
+      });
     },
   },
   extraReducers(builder) {
@@ -51,6 +58,7 @@ export const postsSlice = createSlice({
         (state, action: PayloadAction<Post[]>) => {
           state.status = "idle";
           state.posts = action.payload;
+          state.filteredPosts = action.payload;
         }
       )
       .addCase(fetchAllPosts.rejected, (state) => {
@@ -60,11 +68,14 @@ export const postsSlice = createSlice({
 });
 
 // export actions
-export const { deleteAllPosts } = postsSlice.actions;
+export const { setSearch } = postsSlice.actions;
 
 // export select
 export const selectPosts = (state: AppState) => state.posts.posts;
 export const selectPostsStatus = (state: AppState) => state.posts.status;
+export const selectSearch = (state: AppState) => state.posts.searchText;
+export const selectFilteredPosts = (state: AppState) =>
+  state.posts.filteredPosts;
 
 // export reducer
 export default postsSlice.reducer;

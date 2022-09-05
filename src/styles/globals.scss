@@ -14,3 +14,10 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.header {
+  border-bottom: 2px dashed #2a2e35;
+  &__title {
+    font-size: 40px;
+  }
+}
