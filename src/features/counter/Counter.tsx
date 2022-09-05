@@ -9,6 +9,7 @@ import {
   incrementIfOdd,
   selectCount,
 } from './counterSlice'
+import { fetchAllPosts } from '../posts/postsSlice'
 import styles from './Counter.module.scss'
 
 function Counter() {
@@ -55,6 +56,12 @@ function Counter() {
           onClick={() => dispatch(incrementAsync(incrementValue))}
         >
           Add Async
+        </button>
+        <button
+          className={styles.asyncButton}
+          onClick={() => dispatch(fetchAllPosts())}
+        >
+          Get posts
         </button>
         <button
           className={styles.button}
