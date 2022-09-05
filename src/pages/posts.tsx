@@ -1,17 +1,16 @@
 import { GetServerSideProps, NextPage } from 'next'
 import React, { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../app/hooks';
-import makeStore from '../app/store';
 import { Post, selectPosts, fetchAllPosts } from '../features/posts/postsSlice'
+import store from "../app/store";
 
 interface Props {
-    posts?: Post[];
-    message?: string;
+    posts: Post[];
 }
 
-const Posts: NextPage<Props> = () => {
-    const posts = useAppSelector(selectPosts);
-    console.log({ posts })
+const Posts: NextPage<Props> = ({ posts }) => {
+    const dispatch = useAppDispatch();
+
     return (
         <div>
             <h1>Posts</h1>
@@ -23,16 +22,13 @@ const Posts: NextPage<Props> = () => {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    const store = makeStore();
     await store.dispatch(fetchAllPosts());
-
+    const posts = store.getState().posts.posts;
     return {
         props: {
-            initialState: store.getState(),
+            posts,
         }
     }
 }
-
-
 
 export default Posts

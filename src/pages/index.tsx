@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Link from 'next/link'
 
 import Counter from '../features/counter/Counter'
 import styles from '../styles/Home.module.css'
@@ -17,6 +18,7 @@ const IndexPage: NextPage = () => {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
+        <Link href="/posts">Posts</Link>
         <span>
           <span>Learn </span>
           <a
