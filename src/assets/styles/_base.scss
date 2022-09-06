@@ -12,7 +12,7 @@ html {
 }
 
 body {
-  font-family: 'Hauora', sans-serif;
+  font-family: "Hauora", sans-serif;
   color: var(--black-p-color);
   background-color: var(--body-bg-color);
   font-size: 16px;
@@ -20,7 +20,6 @@ body {
   // line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
-
 
 a {
   transition: color 0.3s ease-in-out;
@@ -55,14 +54,14 @@ h1,
 .h1 {
   font-size: 64px;
   margin-bottom: 0.5em;
-  font-family: 'Mazzard L', sans-serif;
+  font-family: "Mazzard L", sans-serif;
   line-height: 0.8125;
 }
 
 h2,
 .h2 {
   font-size: 48px;
-  font-family: 'Mazzard L', sans-serif;
+  font-family: "Mazzard L", sans-serif;
   line-height: 0.917;
   margin-bottom: 28px;
 }
@@ -71,7 +70,7 @@ h3,
 .h3 {
   font-size: 36px;
   line-height: 1;
-  font-family: 'Mazzard L', sans-serif;
+  font-family: "Mazzard L", sans-serif;
   margin-bottom: 16px;
 }
 
@@ -79,7 +78,7 @@ h4,
 .h4 {
   font-size: 28px;
   line-height: 0.857;
-  font-family: 'Mazzard L', sans-serif;
+  font-family: "Mazzard L", sans-serif;
   margin-bottom: 0.5em;
 }
 
@@ -87,7 +86,7 @@ p {
   line-height: 1.25;
 }
 
-@include media('md') {
+@include media("md") {
   p {
     line-height: 1.667;
   }

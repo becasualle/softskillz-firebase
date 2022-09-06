@@ -4,7 +4,7 @@
   --black-color: #1d2025;
   --black-color-rgb: 29, 32, 37;
 
-  --white-color: #FFFFFF;
+  --white-color: #ffffff;
   --white-color-rgb: 255, 255, 255;
 
   --gray-color: #d5d8de;
@@ -32,30 +32,30 @@
   --disabled-or-inputs-text-color-rgb: 166, 168, 178;
   --disabled-or-inputs-text-color-rgba: 21, 27, 52, 0.38; /* - original */
 
-      /* Переменные переходов */
+  /* Переменные переходов */
   --t-time: 0.3s;
   --transition: all var(--t-time) ease;
 
-  /* Тень для фокуса */
+  /* Тени */
   --focus-shadow: 0 0 0 16px rgba(0, 0, 0, 0.1);
-
-      /* Переменные радиусов */
+  --card-shadow: 0 4px 8px rgba(0,30,84,.12);
+  /* Переменные радиусов */
   --btn-radius: 16px;
   --block-radius: 24px;
 
-  @include media('md') {
+  @include media("md") {
     --block-radius: 20px;
   }
-      /* Переменные отступов */
-    --gap-4: 4px;
-    --gap-8: 8px;
-    --gap-12: 12px;
-    --gap-16: 16px;
-    --gap-20: 20px;
-    --gap-24: 24px;
-    --gap-32: 32px;
-    --gap-40: 40px;
-    --gap-60: 60px;
-    --gap-64: 64px;
-    --gap-80: 80px;
+  /* Переменные отступов */
+  --gap-4: 4px;
+  --gap-8: 8px;
+  --gap-12: 12px;
+  --gap-16: 16px;
+  --gap-20: 20px;
+  --gap-24: 24px;
+  --gap-32: 32px;
+  --gap-40: 40px;
+  --gap-60: 60px;
+  --gap-64: 64px;
+  --gap-80: 80px;
 }

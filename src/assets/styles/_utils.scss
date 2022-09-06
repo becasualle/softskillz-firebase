@@ -1,59 +1,59 @@
 .wrapper {
-width: 100%;
-max-width: 1264px;
-padding-left: 42px;
-padding-right: 42px;
-margin-left: auto;
-margin-right: auto;
+  width: 100%;
+  max-width: 1664px;
+  padding-left: 42px;
+  padding-right: 42px;
+  margin-left: auto;
+  margin-right: auto;
 
-@include media('sm') {
+  @include media("sm") {
     padding-right: 20px;
     padding-left: 20px;
-}
+  }
 
-@include media('xs') {
+  @include media("xs") {
     padding-left: 16px;
     padding-right: 16px;
-}
+  }
 }
 
 .header {
-    border-bottom: 2px dashed #2a2e35;
-  }
+  border-bottom: 2px dashed #2a2e35;
+}
 
-  .error-message {
-    color: var(--attention-error);
-    font-size: 12px;
-    line-height: 1.33;
-  }
+.error-message {
+  color: var(--attention-error);
+  font-size: 12px;
+  line-height: 1.33;
+}
 
 .nowrap {
-    white-space: nowrap;
+  white-space: nowrap;
 }
 
 .cutted-text {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .upp {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .scroll-lock {
-overflow: hidden;
-height: 100vh;
+  overflow: hidden;
+  height: 100vh;
 }
 
-@include media('md') {
-    .hide-for-md {
-        display: none;
-      }
+@include media("md") {
+  .hide-for-md {
+    display: none;
+  }
 }
 
-@include media('sm') {
-    .hide-for-sm {
-        display: none;
-      }
+@include media("sm") {
+  .hide-for-sm {
+    display: none;
+  }
 }

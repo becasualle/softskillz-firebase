@@ -7,7 +7,9 @@ import store from '../app/store';
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
-      <Component {...pageProps} />
+      <section className="wrapper">
+        <Component {...pageProps} />
+      </section>
     </Provider>
   )
 }

@@ -5,6 +5,7 @@ import { Post, selectPosts, fetchAllPosts, setSearch, selectSearch, selectFilter
 import store from "../app/store";
 import Header from "../layout/header/Header";
 import PostCard from "../features/posts/PostCard";
+import PostsGrid from "../features/posts/PostsGrid";
 
 interface Props {
     posts: Post[];
@@ -31,16 +32,12 @@ const Posts: NextPage<Props> = ({ posts }) => {
         return title.toLowerCase().includes(searchText.toLowerCase());
     })
 
-    const renderedPosts = filteredPosts.map(post => (
-        <PostCard key={post.id} post={post} />
-    ))
-
     return (
         <div>
             <h1>Test Title</h1>
             <Header title="Читайте актуальные материалы" />
             <input type="text" value={searchText} onChange={handleSearch} />
-            {filteredPosts.length ? renderedPosts : <div>Нет результатов</div>}
+            {filteredPosts.length ? <PostsGrid posts={filteredPosts} /> : <div>Нет результатов</div>}
         </div>
     )
 }

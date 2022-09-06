@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 
 import Counter from '../features/counter/Counter'
-import styles from '../styles/Home.module.css'
+import styles from '../assets/styles/Home.module.css'
 
 const IndexPage: NextPage = () => {
   return (

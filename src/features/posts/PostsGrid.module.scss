@@ -1,0 +1,12 @@
+@import "../../assets/styles/_mixins.scss";
+
+.posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: var(--gap-24);
+  justify-content: space-evenly;
+
+  @include media('sm'){
+    grid-template-columns: 1fr;
+  }
+}
