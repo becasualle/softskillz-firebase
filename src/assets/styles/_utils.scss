@@ -1,0 +1,59 @@
+.wrapper {
+width: 100%;
+max-width: 1264px;
+padding-left: 42px;
+padding-right: 42px;
+margin-left: auto;
+margin-right: auto;
+
+@include media('sm') {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+@include media('xs') {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+}
+
+.header {
+    border-bottom: 2px dashed #2a2e35;
+  }
+
+  .error-message {
+    color: var(--attention-error);
+    font-size: 12px;
+    line-height: 1.33;
+  }
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.cutted-text {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.upp {
+    text-transform: uppercase;
+}
+
+.scroll-lock {
+overflow: hidden;
+height: 100vh;
+}
+
+@include media('md') {
+    .hide-for-md {
+        display: none;
+      }
+}
+
+@include media('sm') {
+    .hide-for-sm {
+        display: none;
+      }
+}

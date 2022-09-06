@@ -1,4 +1,4 @@
-import '../styles/main.scss'
+import '../assets/styles/main.scss'
 
 import { Provider } from 'react-redux'
 import type { AppProps } from 'next/app'
