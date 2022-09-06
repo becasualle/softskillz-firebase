@@ -40,11 +40,15 @@
   --focus-shadow: 0 0 0 16px rgba(0, 0, 0, 0.1);
   --card-shadow: 0 4px 8px rgba(0,30,84,.12);
   /* Переменные радиусов */
-  --btn-radius: 16px;
-  --block-radius: 24px;
+  --card-radius: 0.25em;
+  --btn-radius: 1em;
+  --block-radius: 1.2em;
+
+  --font-size: 20px;
 
   @include media("md") {
     --block-radius: 20px;
+    --font-size: 15px;
   }
   /* Переменные отступов */
   --gap-4: 4px;
