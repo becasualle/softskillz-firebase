@@ -21,17 +21,22 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-a {
+a,
+.link {
   transition: color 0.3s ease-in-out;
   text-decoration-skip-ink: none;
   color: inherit;
   text-decoration: none;
+  cursor: pointer;
 }
 a:active,
-a:focus {
+a:focus,
+.link:active,
+.link:focus {
   color: inherit;
 }
-a:hover {
+a:hover,
+.link:hover {
   transition: none;
 }
 

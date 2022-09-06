@@ -1,18 +1,25 @@
 .post {
-    background: var(--white-color);
-    border-radius: var(--card-radius);
-    box-shadow: var(--card-shadow);
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+  background: var(--white-color);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%;
 
-    &-text{
-        padding: 1em;
-        &__title {
+  //   &-image {
+  //     object-fit: cover;
+  //     img {
+  //       width: 100%;
+  //       height: auto;
+  //     }
+  //   }
 
-        }
-        &__para {
-
-        }
+  &-text {
+    padding: 1em;
+    &__title {
     }
+    &__para {
+    }
+  }
 }
