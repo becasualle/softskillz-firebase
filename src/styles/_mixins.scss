@@ -1,0 +1,17 @@
+$sizes: (
+  "lg": 1279px,
+  "md": 1023px,
+  "sm": 767px,
+  "xs": 599px,
+);
+
+@mixin media($size, $range: "max") {
+  @if map-has-key($sizes, $size) {
+    $size-value: map-get($sizes, $size);
+    @media only screen and (#{$range}-width: $size-value) {
+      @content;
+    }
+  } @else {
+    @warn 'Invalid breakpoint: #{$size}.';
+  }
+}
