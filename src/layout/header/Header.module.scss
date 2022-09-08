@@ -1,0 +1,27 @@
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0.75rem;
+  font-weight: 600;
+
+  background-color: var(--white-color);
+  box-shadow: var(--nav-shadow);
+
+  height: var(--nav-height);
+}
+
+.link {
+  padding: var(--gap-8);
+}
+
+.pages {
+  display: flex;
+  gap: 1em;
+}

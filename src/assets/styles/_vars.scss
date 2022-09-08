@@ -37,8 +37,11 @@
   --transition: all var(--t-time) ease;
 
   /* Тени */
+  --nav-shadow: 4px 0 10px -3px #c1c1c1;
   --focus-shadow: 0 0 0 16px rgba(0, 0, 0, 0.1);
-  --card-shadow: 0 4px 8px rgba(0,30,84,.12);
+  --card-shadow: 0 4px 8px rgba(0, 30, 84, 0.12);
+  --card-border: 1px solid #dbe1e8;
+
   /* Переменные радиусов */
   --card-radius: 0.25em;
   --btn-radius: 1em;
@@ -50,6 +53,7 @@
     --block-radius: 20px;
     --font-size: 15px;
   }
+
   /* Переменные отступов */
   --gap-4: 4px;
   --gap-8: 8px;
@@ -62,4 +66,7 @@
   --gap-60: 60px;
   --gap-64: 64px;
   --gap-80: 80px;
+
+  // Размеры
+  --nav-height: 80px;
 }

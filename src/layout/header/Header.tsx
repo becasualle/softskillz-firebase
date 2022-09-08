@@ -1,16 +1,25 @@
 import React from 'react'
-import { NextPage } from 'next'
+import Link from 'next/link'
+import styles from "./Header.module.scss"
 
-interface Props {
-  title?: string;
-}
-
-const Header: NextPage<Props> = ({ title = 'Watch the Latest Lessons' }) => {
-  return (
-    <div className='header'>
-      <h2 className='header__title'>{title}</h2>
-    </div>
-  )
+const Header: React.FC = () => {
+    return (
+        <nav className={styles.nav}>
+            <div className={styles.logo}>
+                <Link href="/" >
+                    <a className={styles.link}>Logo</a>
+                </Link>
+            </div>
+            <div className={styles.pages}>
+                <Link href="/" >
+                    <a className={styles.link}>Главная</a>
+                </Link>
+                <Link href="/posts" ><a className={styles.link}>Записи</a></Link>
+                <Link href="/articles" ><a className={styles.link}>Статьи</a></Link>
+            </div>
+            <Link href="/sign-in" className={`${styles.auth} ${styles.link}`}><a className={styles.link}>Войти</a></Link>
+        </nav >
+    )
 }
 
 export default Header

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { Post, selectPosts, fetchAllPosts, setSearch, selectSearch, selectFilteredPosts } from '../features/posts/postsSlice'
 import store from "../app/store";
-import Header from "../layout/header/Header";
+import SubHeader from "../layout/header/SubHeader";
 import PostCard from "../features/posts/PostCard";
 import PostsGrid from "../features/posts/PostsGrid";
 
@@ -15,15 +15,6 @@ const Posts: NextPage<Props> = ({ posts }) => {
     const dispatch = useAppDispatch();
     const [searchText, setSearchText] = useState('');
 
-    // more re-renders but can be useful in some cases:
-    // const [filteredPosts, setFilteredPosts] = useState(posts);
-    // useEffect(() => {
-    //     const filteredBySearch = posts.filter(({ title }) => {
-    //         return title.toLowerCase().includes(searchText.toLowerCase());
-    //     });
-    //     setFilteredPosts(filteredBySearch);
-    // }, [searchText]);
-
     const handleSearch: React.ChangeEventHandler<HTMLInputElement> = (e) => {
         setSearchText(e.target.value);
     }
@@ -33,12 +24,11 @@ const Posts: NextPage<Props> = ({ posts }) => {
     })
 
     return (
-        <div>
-            <h1>Test Title</h1>
-            <Header title="Читайте актуальные материалы" />
+        <section className='posts'>
+            <SubHeader title="Читайте актуальные материалы" />
             <input type="text" value={searchText} onChange={handleSearch} />
             {filteredPosts.length ? <PostsGrid posts={filteredPosts} /> : <div>Нет результатов</div>}
-        </div>
+        </section>
     )
 }
 

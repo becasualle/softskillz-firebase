@@ -1,8 +1,8 @@
 .wrapper {
   width: 100%;
   max-width: 1664px;
-  padding-left: 42px;
-  padding-right: 42px;
+  padding: 42px;
+  margin-top: var(--nav-height);
   margin-left: auto;
   margin-right: auto;
 
@@ -17,7 +17,7 @@
   }
 }
 
-.header {
+.subheader {
   border-bottom: 2px dashed #2a2e35;
 }
 
