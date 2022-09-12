@@ -1,11 +1,11 @@
 import { GetServerSideProps, NextPage } from 'next'
 import React, { useEffect, useState } from 'react'
-import { useAppDispatch, useAppSelector } from '../app/hooks';
-import { Post, selectPosts, fetchAllPosts, setSearch, selectSearch, selectFilteredPosts } from '../features/posts/postsSlice'
-import store from "../app/store";
-import SubHeader from "../layout/header/SubHeader";
-import PostCard from "../features/posts/PostCard";
-import PostsGrid from "../features/posts/PostsGrid";
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { Post, selectPosts, fetchAllPosts, setSearch, selectSearch, selectFilteredPosts } from '../../features/posts/postsSlice'
+import store from "../../app/store";
+import SubHeader from "../../layout/header/SubHeader";
+import PostCard from "../../features/posts/PostCard";
+import PostsGrid from "../../features/posts/PostsGrid";
 
 interface Props {
     posts: Post[];

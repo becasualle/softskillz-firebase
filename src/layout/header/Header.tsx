@@ -14,10 +14,10 @@ const Header: React.FC = () => {
                 <Link href="/" >
                     <a className={styles.link}>Главная</a>
                 </Link>
-                <Link href="/posts" ><a className={styles.link}>Записи</a></Link>
+                <Link href="/notes" ><a className={styles.link}>Записи</a></Link>
                 <Link href="/articles" ><a className={styles.link}>Статьи</a></Link>
             </div>
-            <Link href="/sign-in" className={`${styles.auth} ${styles.link}`}><a className={styles.link}>Войти</a></Link>
+            <Link href="/login" className={`${styles.auth} ${styles.link}`}><a className={styles.link}>Войти</a></Link>
         </nav >
     )
 }
