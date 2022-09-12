@@ -26,10 +26,11 @@ const createNote: NextPage<Props> = () => {
     }
 
     useEffect(() => {
-        if (!isAuth) {
+        if (!isAuth && !localStorage.getItem('isAuth')) {
             router.push('/login')
         }
     }, [])
+
     return (
         <div className={styles.createPostPage}>
             <div className={styles.cpContainer}>

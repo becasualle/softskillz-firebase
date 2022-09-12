@@ -21,7 +21,7 @@ const Posts: NextPage<Props> = ({ posts }) => {
     const router = useRouter();
 
     useEffect(() => {
-        if (!isAuth) {
+        if (!isAuth && !localStorage.getItem('isAuth')) {
             router.push('/login')
         }
     }, [])

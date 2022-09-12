@@ -6,6 +6,7 @@ import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase-config';
 import { useRouter } from 'next/router';
 
+
 const Header: React.FC = () => {
     const { isAuth, setIsAuth } = useGlobalContext();
     const router = useRouter();

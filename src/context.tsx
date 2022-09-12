@@ -1,13 +1,22 @@
-import React, { useContext, createContext, useState } from "react";
+import React, { useContext, createContext, useState, useEffect } from "react";
 
 const AppContext = createContext(null);
 
-interface Props {
+interface ProviderProps {
     children: React.ReactNode
 }
 
-const AppProvider = ({ children }: Props) => {
+const AppProvider = ({ children }: ProviderProps) => {
     const [isAuth, setIsAuth] = useState(false);
+    useEffect(() => {
+        console.log('context effect')
+        if (localStorage.getItem('isAuth') === 'true') {
+            setIsAuth(true)
+        } else {
+            setIsAuth(false)
+        }
+    }, [])
+
     return (
         <AppContext.Provider value={{ isAuth, setIsAuth }}>
             {children}
