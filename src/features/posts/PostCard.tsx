@@ -13,13 +13,15 @@ const PostCard: NextPage<Props> = ({ post }) => {
         <article className={styles.post}>
             <div className={styles["post-image"]}>
                 <Link href={`/posts/${encodeURIComponent(post.id)}`} >
-                    <Image
-                        src="https://images.unsplash.com/photo-1662411716147-3f6f6cc32399?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-                        alt="post image"
-                        width={1152}
-                        height={767}
-                        className="link"
-                    />
+                    <div>
+                        <Image
+                            src="https://images.unsplash.com/photo-1662411716147-3f6f6cc32399?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                            alt="post image"
+                            width={1152}
+                            height={767}
+                            className="link"
+                        />
+                    </div>
                 </Link>
             </div>
             <div className={styles["post-text"]}>

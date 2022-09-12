@@ -29,6 +29,7 @@ const Header: React.FC = () => {
                     <a className={styles.link}>Главная</a>
                 </Link>
                 {isAuth && <Link href="/notes" ><a className={styles.link}>Записи</a></Link>}
+                {isAuth && <Link href="/notes/create-note" ><a className={styles.link}>Создать</a></Link>}
                 <Link href="/articles" ><a className={styles.link}>Статьи</a></Link>
             </div>
             {!isAuth ?

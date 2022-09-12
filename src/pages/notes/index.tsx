@@ -6,6 +6,8 @@ import store from "../../app/store";
 import SubHeader from "../../layout/header/SubHeader";
 import PostCard from "../../features/posts/PostCard";
 import PostsGrid from "../../features/posts/PostsGrid";
+import { useGlobalContext } from '../../context';
+import { useRouter } from 'next/router';
 
 interface Props {
     posts: Post[];
@@ -14,6 +16,15 @@ interface Props {
 const Posts: NextPage<Props> = ({ posts }) => {
     const dispatch = useAppDispatch();
     const [searchText, setSearchText] = useState('');
+
+    const { isAuth } = useGlobalContext();
+    const router = useRouter();
+
+    useEffect(() => {
+        if (!isAuth) {
+            router.push('/login')
+        }
+    }, [])
 
     const handleSearch: React.ChangeEventHandler<HTMLInputElement> = (e) => {
         setSearchText(e.target.value);
