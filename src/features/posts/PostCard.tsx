@@ -3,12 +3,23 @@ import Link from "next/link";
 import { Post } from "./postsSlice";
 import styles from "./PostCard.module.scss"
 import Image from 'next/image';
+import { Note } from "../../pages/notes/create-note";
+import { deleteDoc, doc } from "firebase/firestore";
+import { db } from "../../firebase-config";
 
 interface Props {
-    post: Post
+    post: Post | Note
 }
 
 const PostCard: NextPage<Props> = ({ post }) => {
+
+    console.log('rendered');
+
+    const deletePost = async (id) => {
+        const postDoc = doc(db, 'notes', id);
+        await deleteDoc(postDoc);
+    }
+
     return (
         <article className={styles.post}>
             <div className={styles["post-image"]}>
@@ -28,9 +39,12 @@ const PostCard: NextPage<Props> = ({ post }) => {
                 <Link href={`/posts/${encodeURIComponent(post.id)}`}>
                     <h3 className="text__title link">{post.title}</h3>
                 </Link>
-                <p className="text__para">{post.body}</p>
+                <p className="text__para">{post.body || post.text}</p>
             </div>
-        </article>
+            <div className="post-actions">
+                <button onClick={() => { deletePost(post.id) }}>delete</button>
+            </div>
+        </article >
     )
 }
 

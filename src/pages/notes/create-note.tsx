@@ -11,11 +11,15 @@ interface Props {
 
 }
 
-export interface Note {
+export interface PostNote {
     title: string;
     text: string;
     author: Author;
     createdAt: string;
+}
+
+export interface Note extends PostNote {
+    id: string;
 }
 
 export interface Author {
@@ -38,7 +42,7 @@ const createNote: NextPage<Props> = () => {
         const author: Author = {
             name: auth.currentUser.displayName, id: auth.currentUser.uid, email: auth.currentUser.email
         }
-        const note: Note = {
+        const note: PostNote = {
             title: noteContent.title, text: noteContent.text, author, createdAt
         }
         console.log(note)

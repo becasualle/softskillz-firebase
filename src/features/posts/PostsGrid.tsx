@@ -1,11 +1,12 @@
 import { NextPage } from 'next'
 import React from 'react'
 import { Post } from './postsSlice'
+import { Note } from '../../pages/notes/create-note';
 import PostCard from "./PostCard";
 import styles from './PostsGrid.module.scss';
 
 interface Props {
-    posts: Post[]
+    posts: Post[] | Note[],
 }
 const PostsGrid: NextPage<Props> = ({ posts }) => {
     return (
