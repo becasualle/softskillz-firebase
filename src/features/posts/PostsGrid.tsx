@@ -6,7 +6,7 @@ import PostCard from "./PostCard";
 import styles from './PostsGrid.module.scss';
 
 interface Props {
-    posts: Post[] | Note[],
+    posts: Note[],
 }
 const PostsGrid: NextPage<Props> = ({ posts }) => {
     return (

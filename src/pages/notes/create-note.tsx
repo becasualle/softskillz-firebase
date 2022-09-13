@@ -45,7 +45,6 @@ const createNote: NextPage<Props> = () => {
         const note: PostNote = {
             title: noteContent.title, text: noteContent.text, author, createdAt
         }
-        console.log(note)
         await addDoc(notesCollectionRef, note)
         router.push('/notes');
     }

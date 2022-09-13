@@ -8,12 +8,10 @@ import { deleteDoc, doc } from "firebase/firestore";
 import { db } from "../../firebase-config";
 
 interface Props {
-    post: Post | Note
+    post: Note
 }
 
 const PostCard: NextPage<Props> = ({ post }) => {
-
-    console.log('rendered');
 
     const deletePost = async (id) => {
         const postDoc = doc(db, 'notes', id);
@@ -39,7 +37,7 @@ const PostCard: NextPage<Props> = ({ post }) => {
                 <Link href={`/posts/${encodeURIComponent(post.id)}`}>
                     <h3 className="text__title link">{post.title}</h3>
                 </Link>
-                <p className="text__para">{post.body || post.text}</p>
+                <p className="text__para">{post.text}</p>
             </div>
             <div className="post-actions">
                 <button onClick={() => { deletePost(post.id) }}>delete</button>

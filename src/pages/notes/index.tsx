@@ -11,39 +11,25 @@ import { useRouter } from 'next/router';
 import { getDocs, collection } from 'firebase/firestore';
 import { auth, db } from '../../firebase-config';
 import { Note } from './create-note';
+import { getNotes } from '../api/notes';
 
 interface Props {
-    posts: Post[];
 }
 
-const Posts: NextPage<Props> = ({ posts }) => {
-    const dispatch = useAppDispatch();
+const Posts: NextPage<Props> = () => {
     const [searchText, setSearchText] = useState('');
-    const [notes, setNotes] = useState<Note[]>([]);
-
+    const [userNotes, setUserNotes] = useState<Note[]>([]);
     const { isAuth } = useGlobalContext();
     const router = useRouter();
-
-    const notesCollectionRef = collection(db, 'notes');
-    // TODO: вынести стейт и функцию глобально
-    // TODO: показывать текст "Идет загрузка" пока контент грузится и текст "У вас пока нет записей", когда authUserNotes пустой
-    const getNotes = async () => {
-        const data = await getDocs(notesCollectionRef);
-        const authUserNotes = data.docs.filter(doc => doc.data().author.id === auth.currentUser.uid);
-        const notes = authUserNotes.map(
-            (doc) => ({
-                ...doc.data(), id: doc.id
-            } as Note)
-        )
-        setNotes(notes);
-    }
 
     useEffect(() => {
         if (!isAuth && !localStorage.getItem('isAuth')) {
             router.push('/login')
+        } else {
+            getNotes()
+                .then(notes => notes.filter(note => note.author.id === auth.currentUser.uid))
+                .then(userNotes => setUserNotes(userNotes))
         }
-
-        getNotes();
 
     }, [])
 
@@ -51,7 +37,7 @@ const Posts: NextPage<Props> = ({ posts }) => {
         setSearchText(e.target.value);
     }
 
-    const filteredPosts = posts.filter(({ title }) => {
+    const filteredNotes = userNotes.filter(({ title }) => {
         return title.toLowerCase().includes(searchText.toLowerCase());
     })
 
@@ -59,20 +45,18 @@ const Posts: NextPage<Props> = ({ posts }) => {
         <section className='posts'>
             <SubHeader title="Читайте актуальные материалы" />
             <input type="text" value={searchText} onChange={handleSearch} />
-            {notes.length ? <PostsGrid posts={notes} /> : <div>Нет результатов</div>}
-            {/* {filteredPosts.length ? <PostsGrid posts={filteredPosts} /> : <div>Нет результатов</div>} */}
+            {filteredNotes.length ? <PostsGrid posts={filteredNotes} /> : <div>Нет результатов</div>}
         </section>
     )
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
-    await store.dispatch(fetchAllPosts());
-    const posts = store.getState().posts.posts;
-    return {
-        props: {
-            posts
-        }
-    }
-}
+// export const getServerSideProps: GetServerSideProps = async () => {
+//     const notes = await getNotes();
+//     return {
+//         props: {
+//             notes
+//         }
+//     }
+// }
 
 export default Posts
