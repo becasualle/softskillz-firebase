@@ -9,7 +9,6 @@ interface ProviderProps {
 const AppProvider = ({ children }: ProviderProps) => {
     const [isAuth, setIsAuth] = useState(false);
     useEffect(() => {
-        console.log('context effect')
         if (localStorage.getItem('isAuth') === 'true') {
             setIsAuth(true)
         } else {
