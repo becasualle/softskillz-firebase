@@ -4,6 +4,7 @@
   box-shadow: var(--card-shadow);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   overflow: hidden;
   width: 100%;
   padding: 1.5em;
@@ -15,6 +16,13 @@
   //       height: auto;
   //     }
   //   }
+
+  &-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--gap-12);
+    margin-top: var(--gap-32);
+  }
 
   &-text {
     &__title {

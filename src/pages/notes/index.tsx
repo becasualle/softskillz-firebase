@@ -36,7 +36,7 @@ const Posts: NextPage<Props> = () => {
 
     return (
         <section className='posts'>
-            <SubHeader title="Читайте актуальные материалы" />
+            <SubHeader title="Прорабатывайте свои установки" />
             <input type="text" value={searchText} onChange={handleSearch} />
             {filteredNotes.length ? <PostsGrid posts={filteredNotes} /> : <div>Нет результатов</div>}
         </section>

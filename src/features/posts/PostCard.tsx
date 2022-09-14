@@ -25,11 +25,11 @@ const PostCard: NextPage<Props> = ({ post }) => {
                 </Link>
                 <p className={styles["post-text__para"]}>{cardText}</p>
             </div>
-            <div className="post-actions">
+            <div className={styles["post-actions"]}>
                 <Button >
                     <Link href={`/notes/edit/${encodeURIComponent(post.id)}`}>редактировать</Link>
                 </Button>
-                <Button type="hollow" onClick={() => { dispatch(deleteNote(post.id)) }}>удалить</Button>
+                <Button type="danger" onClick={() => { dispatch(deleteNote(post.id)) }}>удалить</Button>
             </div>
         </article >
     )

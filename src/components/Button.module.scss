@@ -34,6 +34,16 @@
     }
   }
 
+  &--danger {
+    background-color: transparent;
+    border: 1px solid var(--danger-color);
+    color: var(--danger-color);
+    &:hover {
+      background-color: var(--danger-color);
+      color: #fff;
+    }
+  }
+
   &--disabled {
     border-color: var(--light-gray-color);
     background-color: var(--light-gray-color);

@@ -7,8 +7,11 @@ interface Props {
 }
 
 export const Button: React.FC<Props> = ({ children, type }) => {
-    const btnClasses = [styles["button"], type === 'hollow' && styles["button--hollow"], type === 'disabled' && styles["button--disabled"]]
-        .filter(e => e).join(' ');
+    const btnClasses = [styles["button"],
+    type === 'hollow' && styles["button--hollow"],
+    type === 'disabled' && styles["button--disabled"],
+    type === 'danger' && styles["button--danger"]
+    ].filter(e => e).join(' ');
 
     return (
         <button className={btnClasses}>
