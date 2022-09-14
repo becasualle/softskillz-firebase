@@ -7,6 +7,7 @@ import { deleteNote, Note } from "./notesSlice";
 import { deleteDoc, doc } from "firebase/firestore";
 import { db } from "../../firebase-config";
 import { useAppDispatch } from "../../app/hooks";
+import Button from "../../components/Button";
 
 interface Props {
     post: Note
@@ -25,10 +26,10 @@ const PostCard: NextPage<Props> = ({ post }) => {
                 <p className={styles["post-text__para"]}>{cardText}</p>
             </div>
             <div className="post-actions">
-                <button onClick={() => { dispatch(deleteNote(post.id)) }}>delete</button>
-                <button>
-                    <Link href={`/notes/edit/${encodeURIComponent(post.id)}`}>edit</Link>
-                </button>
+                <Button >
+                    <Link href={`/notes/edit/${encodeURIComponent(post.id)}`}>редактировать</Link>
+                </Button>
+                <Button type="hollow" onClick={() => { dispatch(deleteNote(post.id)) }}>удалить</Button>
             </div>
         </article >
     )
