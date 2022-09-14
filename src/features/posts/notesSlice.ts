@@ -26,6 +26,18 @@ export interface NotesState {
   status: "idle" | "loading" | "failed";
 }
 
+export const initialNote: Note = {
+  id: "",
+  title: "",
+  text: "",
+  author: {
+    name: "",
+    email: "",
+    id: "",
+  },
+  createdAt: "",
+};
+
 // create initial state with default values
 const initialState: NotesState = {
   notes: [],

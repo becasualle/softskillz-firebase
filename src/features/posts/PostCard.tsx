@@ -43,6 +43,9 @@ const PostCard: NextPage<Props> = ({ post }) => {
             </div>
             <div className="post-actions">
                 <button onClick={() => { dispatch(deleteNote(post.id)) }}>delete</button>
+                <button>
+                    <Link href={`/notes/edit/${encodeURIComponent(post.id)}`}>edit</Link>
+                </button>
             </div>
         </article >
     )
