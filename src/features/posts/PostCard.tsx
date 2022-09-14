@@ -14,32 +14,15 @@ interface Props {
 
 const PostCard: NextPage<Props> = ({ post }) => {
     const dispatch = useAppDispatch();
-
-    const deletePost = async (id) => {
-        const postDoc = doc(db, 'notes', id);
-        await deleteDoc(postDoc);
-    }
+    const cardText = post.text.length > 140 ? post.text.slice(0, 141) + '...' : post.text;
 
     return (
         <article className={styles.post}>
-            <div className={styles["post-image"]}>
-                <Link href={`/posts/${encodeURIComponent(post.id)}`} >
-                    <div>
-                        <Image
-                            src="https://images.unsplash.com/photo-1662411716147-3f6f6cc32399?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-                            alt="post image"
-                            width={1152}
-                            height={767}
-                            className="link"
-                        />
-                    </div>
-                </Link>
-            </div>
             <div className={styles["post-text"]}>
                 <Link href={`/posts/${encodeURIComponent(post.id)}`}>
-                    <h3 className="text__title link">{post.title}</h3>
+                    <h3 className="post-text__title link">{post.title}</h3>
                 </Link>
-                <p className="text__para">{post.text}</p>
+                <p className={styles["post-text__para"]}>{cardText}</p>
             </div>
             <div className="post-actions">
                 <button onClick={() => { dispatch(deleteNote(post.id)) }}>delete</button>

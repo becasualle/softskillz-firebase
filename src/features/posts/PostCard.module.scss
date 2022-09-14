@@ -6,6 +6,7 @@
   flex-direction: column;
   overflow: hidden;
   width: 100%;
+  padding: 1.5em;
 
   //   &-image {
   //     object-fit: cover;
@@ -16,7 +17,6 @@
   //   }
 
   &-text {
-    padding: 1em;
     &__title {
     }
     &__para {
