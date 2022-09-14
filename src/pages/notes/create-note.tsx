@@ -5,27 +5,11 @@ import { addDoc, collection } from "firebase/firestore";
 import { db, auth } from '../../firebase-config';
 import { useRouter } from 'next/router';
 import { useGlobalContext } from '../../context';
+import { Author, PostNote, Note } from '../../features/posts/notesSlice';
 import dayjs from 'dayjs';
 
 interface Props {
 
-}
-
-export interface PostNote {
-    title: string;
-    text: string;
-    author: Author;
-    createdAt: string;
-}
-
-export interface Note extends PostNote {
-    id: string;
-}
-
-export interface Author {
-    name: string;
-    email: string;
-    id: string;
 }
 
 const createNote: NextPage<Props> = () => {

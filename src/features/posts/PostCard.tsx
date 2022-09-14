@@ -3,15 +3,17 @@ import Link from "next/link";
 import { Post } from "./postsSlice";
 import styles from "./PostCard.module.scss"
 import Image from 'next/image';
-import { Note } from "../../pages/notes/create-note";
+import { deleteNote, Note } from "./notesSlice";
 import { deleteDoc, doc } from "firebase/firestore";
 import { db } from "../../firebase-config";
+import { useAppDispatch } from "../../app/hooks";
 
 interface Props {
     post: Note
 }
 
 const PostCard: NextPage<Props> = ({ post }) => {
+    const dispatch = useAppDispatch();
 
     const deletePost = async (id) => {
         const postDoc = doc(db, 'notes', id);
@@ -40,7 +42,7 @@ const PostCard: NextPage<Props> = ({ post }) => {
                 <p className="text__para">{post.text}</p>
             </div>
             <div className="post-actions">
-                <button onClick={() => { deletePost(post.id) }}>delete</button>
+                <button onClick={() => { dispatch(deleteNote(post.id)) }}>delete</button>
             </div>
         </article >
     )
