@@ -1,10 +1,13 @@
 import React from "react";
 import styles from "./Button.module.scss";
 
-interface Props {
-  children?: React.ReactNode;
+type Props = React.PropsWithChildren<{
   type?: "default" | "hollow" | "disabled" | "danger";
-}
+}> &
+  React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  >;
 
 export const Button: React.FC<Props> = ({ children, type }) => {
   const btnClasses = [

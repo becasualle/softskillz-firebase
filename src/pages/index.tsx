@@ -19,7 +19,6 @@ const IndexPage: NextPage = () => {
         <title>Soft Skillz</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>Main page</h1>
       <Hero
         title={heroInfo.title}
         subtitle={heroInfo.subtitle}

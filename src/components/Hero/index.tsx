@@ -14,14 +14,26 @@ type Props = {
 const Hero = ({ title, imgSrc, subtitle, btn1Text, btn2Text }: Props) => {
   return (
     <section className={styles.hero}>
-      <div className="text">
-        <h1 className="text__title">{title}</h1>
-        <p className="text__subtitle">{subtitle}</p>
-        {btn1Text && <Button>{btn1Text}</Button>}
-        {btn2Text && <Button type="hollow">{btn2Text}</Button>}
+      <div className={styles.text}>
+        <h1 className={styles.text__title}>{title}</h1>
+        <p className={styles.text__subtitle}>{subtitle}</p>
+        <div className={styles.cta}>
+          {btn1Text && <Button className={styles.cta__btn}>{btn1Text}</Button>}
+          {btn2Text && (
+            <Button className={styles.cta__btn} type="hollow">
+              {btn2Text}
+            </Button>
+          )}
+        </div>
       </div>
-      <div className="image">
-        <Image src={imgSrc} width={870} height={580} priority />
+      <div className={styles.image}>
+        <Image
+          src={imgSrc}
+          className={styles.image__img}
+          width={870}
+          height={580}
+          priority
+        />
       </div>
     </section>
   );
