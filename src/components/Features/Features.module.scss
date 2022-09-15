@@ -1,0 +1,40 @@
+@import "../../assets/styles/mixins";
+
+.features {
+    padding: 3rem 0;
+}
+
+.description {
+    &__title {
+
+    }
+    &__subtitle{
+
+    }
+}
+
+.list {
+    .item {
+        &-heading {
+            &-number {
+                &__numbox{
+
+                }
+                &__title{
+                    display: none;
+                    @include media('sm'){
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+        &-content {
+            &__title{
+
+            }
+            &__para {
+
+            }
+        }
+    }
+}
