@@ -4,6 +4,7 @@ import React from 'react'
 import { auth, provider } from "../firebase-config";
 import { signInWithPopup } from 'firebase/auth';
 import { useGlobalContext } from '../context';
+import styles from './login.module.scss';
 
 interface Props {
 
@@ -20,9 +21,9 @@ const Login: NextPage = () => {
         })
     }
     return (
-        <div className="login">
-            <p>Войдите с помощью Google, чтобы продолжить</p>
-            <button className='login-btn' onClick={signInWithGoogle}>Войдите с Google</button>
+        <div className={styles.login}>
+            <p>Войдите с помощью Google, чтобы продолжить: </p>
+            <button className={styles['login-with-google-btn']} onClick={signInWithGoogle}>Войдите с Google</button>
         </div>
     )
 }

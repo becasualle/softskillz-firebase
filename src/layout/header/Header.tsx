@@ -6,6 +6,7 @@ import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase-config';
 import { useRouter } from 'next/router';
 
+
 const Header: React.FC = () => {
     const { isAuth, setIsAuth } = useGlobalContext();
     const router = useRouter();
@@ -29,6 +30,7 @@ const Header: React.FC = () => {
                     <a className={styles.link}>Главная</a>
                 </Link>
                 {isAuth && <Link href="/notes" ><a className={styles.link}>Записи</a></Link>}
+                {isAuth && <Link href="/notes/create-note" ><a className={styles.link}>Создать</a></Link>}
                 <Link href="/articles" ><a className={styles.link}>Статьи</a></Link>
             </div>
             {!isAuth ?

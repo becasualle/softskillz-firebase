@@ -4,8 +4,10 @@
   box-shadow: var(--card-shadow);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   overflow: hidden;
   width: 100%;
+  padding: 1.5em;
 
   //   &-image {
   //     object-fit: cover;
@@ -15,8 +17,14 @@
   //     }
   //   }
 
+  &-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--gap-12);
+    margin-top: var(--gap-32);
+  }
+
   &-text {
-    padding: 1em;
     &__title {
     }
     &__para {
