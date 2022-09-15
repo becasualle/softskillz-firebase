@@ -3,7 +3,6 @@
   --black-p-color: #333333;
   --black-color: #1d2025;
   --black-color-rgb: 29, 32, 37;
-  --danger-color: #dc3545;
 
   --white-color: #ffffff;
   --white-color-rgb: 255, 255, 255;
@@ -32,6 +31,18 @@
   --disabled-or-inputs-text-color: #a6a8b2; /* #151B34 (38%) - original */
   --disabled-or-inputs-text-color-rgb: 166, 168, 178;
   --disabled-or-inputs-text-color-rgba: 21, 27, 52, 0.38; /* - original */
+
+  /* Состояния */
+  --attention: #F5ABBD;
+  --in-progress: #FFE07A;
+  --success: #C4F5CB;
+
+  /* Акценты фона*/
+  --bg-green: #a3dece;
+  --bg-yellow: #fef573;
+  --bg-purple: #d6aaff;
+  --bg-blue: #a0ecff;
+
 
   /* Переменные переходов */
   --t-time: 0.3s;

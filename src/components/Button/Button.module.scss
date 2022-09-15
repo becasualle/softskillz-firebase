@@ -36,10 +36,10 @@
 
   &--danger {
     background-color: transparent;
-    border: 1px solid var(--danger-color);
-    color: var(--danger-color);
+    border: 1px solid var(--attention);
+    color: var(--attention);
     &:hover {
-      background-color: var(--danger-color);
+      background-color: var(--attention);
       color: #fff;
     }
   }

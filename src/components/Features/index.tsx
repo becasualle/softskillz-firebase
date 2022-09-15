@@ -22,7 +22,7 @@ const Features = ({ featureContent, featureContent: { features } }: Props) => {
       <div className={styles["item-heading"]}>
         <div className={styles["item-heading-number"]}>
           <div className={styles["item-heading-number__numbox"]}>
-            {index + 1}
+            0{index + 1}
           </div>
           <h3 className={styles["item-heading-number__title"]}>
             {feature.title}

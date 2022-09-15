@@ -2,23 +2,36 @@
 
 .features {
     padding: 3rem 0;
+    display: flex;
+    gap: var(--gap-60);
 }
 
 .description {
     &__title {
-
     }
     &__subtitle{
-
+        margin-top: 2em;
+        color: var(--secondary-text-color);
     }
 }
 
 .list {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
     .item {
+        display: flex;
+        gap: 1em;
+
         &-heading {
             &-number {
+                display: flex;
+                align-items: center;
                 &__numbox{
-
+                    padding: 0.25rem 1rem;
+                    color: var(--white-color);
+                    background-color: var(--bg-green);
+                    border-radius: 3rem;
                 }
                 &__title{
                     display: none;
@@ -33,7 +46,7 @@
 
             }
             &__para {
-
+                color: var(--secondary-text-color);
             }
         }
     }

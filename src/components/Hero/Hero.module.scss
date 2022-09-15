@@ -25,6 +25,7 @@
 .text {
     &__subtitle {
         margin-bottom: 1em;
+        color: var(--secondary-text-color);
     }
     @include media('sm'){
         order: 2;
