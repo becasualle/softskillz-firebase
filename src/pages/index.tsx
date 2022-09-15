@@ -1,65 +1,34 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Link from 'next/link'
-
-import Counter from '../features/counter/Counter'
-import styles from '../assets/styles/Home.module.css'
+import type { NextPage } from "next";
+import Head from "next/head";
+import { title } from "process";
+import Hero from "../components/Hero";
 
 const IndexPage: NextPage = () => {
+  const heroInfo = {
+    title: "Responsive left-aligned hero with image",
+    subtitle:
+      "Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.",
+    btn1Text: "Primary",
+    btn2Text: "Default",
+    imgSrc:
+      "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+  };
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
-        <title>Redux Toolkit</title>
+        <title>Soft Skillz</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header className={styles.header}>
-        <img src="/logo.svg" className={styles.logo} alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <Link href="/posts">Posts</Link>
-        <span>
-          <span>Learn </span>
-          <a
-            className={styles.link}
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className={styles.link}
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className={styles.link}
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className={styles.link}
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+      <h1>Main page</h1>
+      <Hero
+        title={heroInfo.title}
+        subtitle={heroInfo.subtitle}
+        imgSrc={heroInfo.imgSrc}
+        btn1Text={heroInfo.btn1Text}
+        btn2Text={heroInfo.btn2Text}
+      />
     </div>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;
