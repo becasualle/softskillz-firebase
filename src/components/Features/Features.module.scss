@@ -4,13 +4,23 @@
     padding: 3rem 0;
     display: flex;
     gap: var(--gap-60);
+    @include media('sm'){
+        flex-direction: column;
+        gap: var(--gap-32);
+    }
 }
 
 .description {
+    display: flex;
+    flex-direction: column;
+    @include media('sm'){
+        align-items: center;
+    }
     &__title {
+        text-align: center;
     }
     &__subtitle{
-        margin-top: 2em;
+        text-align: center;
         color: var(--secondary-text-color);
     }
 }
@@ -22,28 +32,41 @@
     .item {
         display: flex;
         gap: 1em;
+        @include media('sm'){
+            flex-direction: column;
+        }
 
         &-heading {
+            @include media('sm'){
+                background-color: var(--bg-green-light);
+                border-top-left-radius: 3rem;
+                border-bottom-left-radius: 3rem;
+            }
             &-number {
                 display: flex;
                 align-items: center;
                 &__numbox{
                     padding: 0.25rem 1rem;
                     color: var(--white-color);
-                    background-color: var(--bg-green);
+                    background-color: var(--bg-green-accent);
                     border-radius: 3rem;
                 }
                 &__title{
                     display: none;
+                    margin-bottom: 0;
+                    margin-left: .5em;
                     @include media('sm'){
                         display: inline-block;
+                        font-size: 20px;
                     }
                 }
             }
         }
         &-content {
             &__title{
-
+                @include media('sm'){
+                    display: none;
+                }
             }
             &__para {
                 color: var(--secondary-text-color);
