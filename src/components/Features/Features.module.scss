@@ -17,11 +17,15 @@
         align-items: center;
     }
     &__title {
-        text-align: center;
+        @include media('sm'){
+            text-align: center;
+        }
     }
     &__subtitle{
-        text-align: center;
         color: var(--secondary-text-color);
+        @include media('sm'){
+            text-align: center;
+        }
     }
 }
 
