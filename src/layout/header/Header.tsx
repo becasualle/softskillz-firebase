@@ -25,9 +25,11 @@ const Header: React.FC = () => {
         </Link>
       </div>
       <div className={styles.pages}>
-        <Link href="/">
-          <a className={styles.link}>Главная</a>
-        </Link>
+        {isAuth && (
+          <Link href="/">
+            <a className={styles.link}>Главная</a>
+          </Link>
+        )}
         {isAuth && (
           <Link href="/notes">
             <a className={styles.link}>Записи</a>

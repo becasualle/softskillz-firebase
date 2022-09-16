@@ -1,3 +1,5 @@
+@import "../../assets/styles/mixins";
+
 .nav {
   position: fixed;
   top: 0;
@@ -19,9 +21,18 @@
 
 .link {
   padding: var(--gap-8);
+  @include media('sm'){
+    padding: var(--gap-4);
+  }
 }
 
 .pages {
   display: flex;
   gap: 1em;
+  @include media('sm'){
+    gap: .5em;
+  }
+  @include media('xs'){
+    gap: .25em;
+  }
 }
