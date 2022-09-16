@@ -6,6 +6,7 @@ import { db, auth } from "../../firebase-config";
 import { useRouter } from "next/router";
 import { useGlobalContext } from "../../context";
 import { Author, PostNote, Note } from "../../features/posts/notesSlice";
+import Button from "../../components/Button";
 import dayjs from "dayjs";
 
 interface Props {}
@@ -18,6 +19,11 @@ const createNote: NextPage<Props> = () => {
   const notesCollectionRef = collection(db, "notes");
 
   const { isAuth } = useGlobalContext();
+
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault();
+    console.log("submitted");
+  };
 
   const createNote = async () => {
     const createdAt = dayjs().format("YYYY-MM-DD HH:mm:ss");
@@ -42,15 +48,48 @@ const createNote: NextPage<Props> = () => {
     }
   }, []);
 
+  // Информация для отрисовки блока формы со списком чекбоксов когнитивных искажений
+  const cognitiveDistortions = [
+    { name: "Катастрофизация", example: "Что если случится худшее?" },
+    { name: "Черно-белое мышление", example: "Я полный неудачник" },
+    {
+      name: "Эмоциональное рассуждение",
+      example: "Я так чувствую, стало быть это правда",
+    },
+    { name: "Усиление негатива", example: "Я абсолютно все загубил " },
+    {
+      name: "Ментальный фильтр",
+      example: "Они так сказали просто из вежливости",
+    },
+    { name: "Навешивание ярлыков", example: "Если я ошибся, значит, я идиот" },
+    {
+      name: "Предсказание будущего",
+      example: "Я наверняка провалю мой экзамен",
+    },
+    { name: "Чтение мыслей", example: "Он думает, что я не справлюсь" },
+    { name: "Персонализация", example: "Это всё из-за меня" },
+    { name: "Обвинение других", example: "Это они во всем виноваты" },
+    { name: "Чрезмерное обобщение", example: "Мне вечно не везет" },
+  ];
+
+  const renderedDistortions = cognitiveDistortions.map((distortion) => (
+    <div className="distortion-group" key={distortion.example}>
+      <div className="distortion-check">
+        <input type="checkbox" name={distortion.name} id={distortion.name} />
+        <label htmlFor={distortion.name}>{distortion.name}</label>
+      </div>
+      <small>{distortion.example}</small>
+    </div>
+  ));
+
   return (
-    <div className={styles.createPostPage}>
-      <div className={styles.cpContainer}>
-        <h1>Разберите своё состояние</h1>
-        <div className={styles.inputGp}>
-          <label htmlFor="title">Заголовок</label>
+    <section className={`py-3`}>
+      <form onSubmit={handleSubmit}>
+        <div className="input-group">
+          <label htmlFor="title">Ситуация/Триггер</label>
           <input
             type="text"
-            placeholder="Заголовок..."
+            placeholder="Что случилось?"
             id="title"
             name="title"
             onChange={(e) =>
@@ -58,10 +97,10 @@ const createNote: NextPage<Props> = () => {
             }
           />
         </div>
-        <div className={styles.inputGp}>
-          <label htmlFor="post">Ситуация</label>
+        <div className="input-group">
+          <label htmlFor="post">Описание ситуации</label>
           <textarea
-            placeholder="Ситуация..."
+            placeholder="Изложите факты о ситуации"
             id="post"
             name="post"
             onChange={(e) =>
@@ -69,9 +108,66 @@ const createNote: NextPage<Props> = () => {
             }
           />
         </div>
-        <button onClick={createNote}> Сохранить запись </button>
-      </div>
-    </div>
+        <div className="input-group">
+          <label htmlFor="emotions">Описание ситуации</label>
+          <select name="emotions" id="emotions">
+            <option>Выберите самую яркую эмоцию</option>
+            <option value="Anger">Гнев, возмущение</option>
+            <option value="Anxiety">Страх, тревога</option>
+            <option value="Depression">Грусть, разочарование</option>
+            <option value="Guilt">Вина, сожаление</option>
+            <option value="Shame">Стыд, смущение</option>
+            <option value="Happiness">Радость, возбуждение</option>
+            <option value="Love">Любовь, благодарность</option>
+          </select>
+        </div>
+        <div className="input-group">
+          <label htmlFor="emotePower">Описание ситуации</label>
+          <input
+            type="range"
+            name="emotePower"
+            id="emotePower"
+            min="1"
+            max="10"
+          />
+        </div>
+        <div className="input-group">
+          <label htmlFor="autoThoughts">Автоматические мысли</label>
+          <textarea
+            placeholder="Какие мысли крутятся в голове в отношении этой ситуации"
+            id="autoThoughts"
+            name="autoThoughts"
+          />
+        </div>
+        <div className="input-group">
+          <div className="distortions-description">
+            <p>Когнитивные искажения</p>
+            <small>
+              Выберите те когнитивные искажения, которые вы нашли в своих
+              автоматических мыслях:
+            </small>
+          </div>
+          {renderedDistortions}
+        </div>
+        <div className="input-group">
+          <label htmlFor="thoughtAnalyze">Анализ автоматических мыслей</label>
+          <textarea
+            placeholder="Какие есть аргументы за и против? Насколько эти мысли соотвествуют фактам, логике? Приносят ли они пользу или вредят?"
+            id="thoughtAnalyze"
+            name="thoughtAnalyze"
+          />
+        </div>
+        <div className="input-group">
+          <label htmlFor="rationalThoughts">Альтернативные мысли</label>
+          <textarea
+            placeholder="Как можно конструктивно думать о ситуации без когнитивных искажений, с пользой для себя и окружающих?"
+            id="rationalThoughts"
+            name="rationalThoughts"
+          />
+        </div>
+        <Button> Сохранить запись </Button>
+      </form>
+    </section>
   );
 };
 
