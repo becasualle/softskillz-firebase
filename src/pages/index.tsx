@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Hero from "../components/Hero";
 import Features, { Feature, FeatureContent } from "../components/Features";
+import Testimonials, { Testimonial } from "../components/Testimonials";
 
 const IndexPage: NextPage = () => {
   const heroInfo = {
@@ -32,6 +33,18 @@ const IndexPage: NextPage = () => {
       },
     ],
   };
+  const testimonialsContent: Testimonial[] = [
+    {
+      emphasized: "",
+      body: "",
+      author: {
+        avatar: "",
+        name: "",
+        position: "",
+      },
+    },
+  ];
+
   return (
     <div>
       <Head>
@@ -46,6 +59,7 @@ const IndexPage: NextPage = () => {
         btn2Text={heroInfo.btn2Text}
       />
       <Features featureContent={featureContent} />
+      <Testimonials testimonials={testimonialsContent} />
     </div>
   );
 };

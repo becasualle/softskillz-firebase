@@ -18,7 +18,7 @@ type Props = React.PropsWithChildren<{
 
 const Features = ({ featureContent, featureContent: { features } }: Props) => {
   const renderedFeatures = features.map((feature, index) => (
-    <div className={styles.item}>
+    <div className={styles.item} key={index}>
       <div className={styles["item-heading"]}>
         <div className={styles["item-heading-number"]}>
           <div className={styles["item-heading-number__numbox"]}>
