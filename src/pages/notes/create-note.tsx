@@ -84,10 +84,11 @@ const createNote: NextPage<Props> = () => {
 
   return (
     <section className={`py-3`}>
-      <form onSubmit={handleSubmit}>
-        <div className="input-group">
+      <form onSubmit={handleSubmit} className={styles["cbt-form"]}>
+        <div className={styles["input-group"]}>
           <label htmlFor="title">Ситуация/Триггер</label>
           <input
+            className={styles["input-group__text"]}
             type="text"
             placeholder="Что случилось?"
             id="title"
@@ -97,7 +98,7 @@ const createNote: NextPage<Props> = () => {
             }
           />
         </div>
-        <div className="input-group">
+        <div className={styles["input-group"]}>
           <label htmlFor="post">Описание ситуации</label>
           <textarea
             placeholder="Изложите факты о ситуации"
@@ -108,8 +109,8 @@ const createNote: NextPage<Props> = () => {
             }
           />
         </div>
-        <div className="input-group">
-          <label htmlFor="emotions">Описание ситуации</label>
+        <div className={styles["input-group"]}>
+          <label htmlFor="emotions">Эмоция</label>
           <select name="emotions" id="emotions">
             <option>Выберите самую яркую эмоцию</option>
             <option value="Anger">Гнев, возмущение</option>
@@ -121,9 +122,10 @@ const createNote: NextPage<Props> = () => {
             <option value="Love">Любовь, благодарность</option>
           </select>
         </div>
-        <div className="input-group">
-          <label htmlFor="emotePower">Описание ситуации</label>
+        <div className={styles["input-group"]}>
+          <label htmlFor="emotePower">Сила эмоции</label>
           <input
+            className={styles["input-group__range"]}
             type="range"
             name="emotePower"
             id="emotePower"
@@ -131,7 +133,7 @@ const createNote: NextPage<Props> = () => {
             max="10"
           />
         </div>
-        <div className="input-group">
+        <div className={styles["input-group"]}>
           <label htmlFor="autoThoughts">Автоматические мысли</label>
           <textarea
             placeholder="Какие мысли крутятся в голове в отношении этой ситуации"
@@ -139,7 +141,7 @@ const createNote: NextPage<Props> = () => {
             name="autoThoughts"
           />
         </div>
-        <div className="input-group">
+        <div className={styles["input-group"]}>
           <div className="distortions-description">
             <p>Когнитивные искажения</p>
             <small>
@@ -149,7 +151,7 @@ const createNote: NextPage<Props> = () => {
           </div>
           {renderedDistortions}
         </div>
-        <div className="input-group">
+        <div className={styles["input-group"]}>
           <label htmlFor="thoughtAnalyze">Анализ автоматических мыслей</label>
           <textarea
             placeholder="Какие есть аргументы за и против? Насколько эти мысли соотвествуют фактам, логике? Приносят ли они пользу или вредят?"
@@ -157,7 +159,7 @@ const createNote: NextPage<Props> = () => {
             name="thoughtAnalyze"
           />
         </div>
-        <div className="input-group">
+        <div className={styles["input-group"]}>
           <label htmlFor="rationalThoughts">Альтернативные мысли</label>
           <textarea
             placeholder="Как можно конструктивно думать о ситуации без когнитивных искажений, с пользой для себя и окружающих?"
