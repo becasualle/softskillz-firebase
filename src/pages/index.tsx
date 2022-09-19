@@ -6,30 +6,30 @@ import Testimonials, { Testimonial } from "../components/Testimonials";
 
 const IndexPage: NextPage = () => {
   const heroInfo = {
-    title: "Responsive left-aligned hero with image",
+    title: "Развивайте гибкие навыки",
     subtitle:
-      "Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.",
-    btn1Text: "Primary",
-    btn2Text: "Default",
+      "Улучшайте результаты во всех сферах жизни с помощью регулярной практики гибких навыков в онлайн-формате. Курсы, статьи и онлайн-тренажеры по научно-доказанным методологиям",
+    btn1Text: "Начать",
+    btn2Text: "Подробности",
     imgSrc:
       "https://images.unsplash.com/photo-1499209974431-9dddcece7f88?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
   };
   const featureContent: FeatureContent = {
-    title: "What's different about Manage?",
+    title: "Возможности платформы SoftSkillz",
     subtitle:
-      "Manage provides all the functionality your team needs, without the complexity. Our software is tailor-made for modern digital product teams.",
+      "Гибкие навыки - один из ключевых факторов продвижения по карьере, залог хороших отношений с друзьями и в семье",
     features: [
       {
-        title: "Track company-wide progress",
-        body: "See how your day-to-day tasks fit into the wider vision. Go from tracking progress at the milestone level all the way done to the smallest of details. Never lose sight of the bigger picture again.",
+        title: "Регулярная практика",
+        body: "Существует множество замечательных книг по любой теме - от переговоров до популярной психологии. Проблема в том, что чтение книг не помогает. Чтобы сформировать навыки, требуются тренировки. Мы помогаем любому человеку тренироваться каждый день и чувствовать прогресс",
       },
       {
-        title: "Advanced built-in reports",
-        body: "Set internal delivery estimates and track progress toward company goals. Our customisable dashboard helps you build out the reports you need to keep key stakeholders informed.",
+        title: "Надежные инструменты",
+        body: "В интернете огромное количество непроверенной информации, которая может навредить. Мы тщательно подходим к подготовке маетриалов и онлайн тренажеров и используем только научно-доказанные подходы",
       },
       {
-        title: "Everything you need in one place",
-        body: "Stop jumping from one service to another to communicate, store files, track tasks and share documents. Manage offers an all-in-one team productivity solution.",
+        title: "Бесплатно",
+        body: "Тренинги по гибким навыком стоят от нескольких десятков до нескольких сотен тысяч рублей за три месяца. Наша миссия - помочь всем желающим развиваться независимо от финансового положения",
       },
     ],
   };

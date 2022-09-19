@@ -13,6 +13,7 @@
 .description {
     display: flex;
     flex-direction: column;
+    min-width: 35%;
     @include media('sm'){
         align-items: center;
     }

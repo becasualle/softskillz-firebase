@@ -32,7 +32,7 @@ const Testimonials = ({ testimonials }: Props) => {
   return (
     <section className={styles["testimonial-page"]}>
       <h2 className={styles["testimonial-page__title"]}>
-        What's Different About Manage?
+        Что говорят наши пользователи
       </h2>
       <div className={styles.testimonials}>
         {testimonials.map((testimonial) => {
