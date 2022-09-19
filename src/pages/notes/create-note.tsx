@@ -5,76 +5,11 @@ import { addDoc, collection } from "firebase/firestore";
 import { db, auth } from "../../firebase-config";
 import { useRouter } from "next/router";
 import { useGlobalContext } from "../../context";
-import { Author, PostNote, Note } from "../../features/posts/notesSlice";
+import { Author, PostNote, defaultNote } from "../../features/posts/notesSlice";
 import Button from "../../components/Button";
 import dayjs from "dayjs";
 
 interface Props {}
-
-const initialDistortions = [
-  {
-    val: "Катастрофизация",
-    checked: false,
-    example: "Что если случится худшее?",
-  },
-  {
-    val: "Черно-белое мышление",
-    checked: false,
-    example: "Я полный неудачник",
-  },
-  {
-    val: "Эмоциональное рассуждение",
-    checked: false,
-    example: "Я так чувствую, стало быть это правда",
-  },
-  {
-    val: "Усиление негатива",
-    checked: false,
-    example: "Я абсолютно все загубил ",
-  },
-  {
-    val: "Минимизация позитива",
-    checked: false,
-    example: "Они так говорят просто из вежливости",
-  },
-  {
-    val: "Навешивание ярлыков",
-    checked: false,
-    example: "Если я ошибся, значит, я идиот",
-  },
-  {
-    val: "Предсказание будущего",
-    checked: false,
-    example: "Я наверняка провалю мой экзамен",
-  },
-  {
-    val: "Чтение мыслей",
-    checked: false,
-    example: "Он думает, что я не справлюсь",
-  },
-  { val: "Персонализация", checked: false, example: "Это всё из-за меня" },
-  {
-    val: "Обвинение других",
-    checked: false,
-    example: "Это они во всем виноваты",
-  },
-  {
-    val: "Чрезмерное обобщение",
-    checked: false,
-    example: "Мне вечно не везет",
-  },
-];
-
-const defaultNote = {
-  title: "",
-  description: "",
-  emotion: "",
-  emotePower: "",
-  autoThoughts: "",
-  distortions: initialDistortions,
-  thoughtAnalyze: "",
-  rationalThoughts: "",
-};
 
 const createNote: NextPage<Props> = () => {
   const [noteContent, setNoteContent] = useState({ title: "", text: "" });
@@ -106,25 +41,27 @@ const createNote: NextPage<Props> = () => {
     setNote({ ...note, distortions: changedDistortions });
   };
 
-  const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    console.log("submitted");
-  };
-
-  const createNote = async () => {
     const createdAt = dayjs().format("YYYY-MM-DD HH:mm:ss");
     const author: Author = {
       name: auth.currentUser.displayName,
       id: auth.currentUser.uid,
       email: auth.currentUser.email,
     };
-    const note: PostNote = {
-      title: noteContent.title,
-      text: noteContent.text,
+    const checkedDistortions = note.distortions.filter(
+      (dist) => dist.checked === true
+    );
+    const distortionValues = checkedDistortions.map((dist) => dist.val);
+    // TODO: Добавить валидацию на проверку пустых полей
+    const submittedNote = {
+      ...note,
+      distortions: distortionValues,
       author,
       createdAt,
     };
-    await addDoc(notesCollectionRef, note);
+
+    await addDoc(notesCollectionRef, submittedNote);
     router.push("/notes");
   };
 
@@ -263,8 +200,8 @@ const createNote: NextPage<Props> = () => {
             onChange={handleChange}
           />
         </div>
-
-        <Button> Сохранить запись </Button>
+        {/* @ts-ignore */}
+        <Button onClick={handleSubmit}> Сохранить запись </Button>
       </form>
     </section>
   );

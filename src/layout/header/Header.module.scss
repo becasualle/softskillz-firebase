@@ -19,11 +19,26 @@
   height: var(--nav-height);
 }
 
+.logo {
+  font-family: "Mazzard L", serif;
+  font-size: 2rem;
+}
+
 .link {
+  font-size: 18px;
   padding: var(--gap-8);
   @include media('sm'){
     padding: var(--gap-4);
   }
+  transition: color .5s ease-in-out;
+}
+.link:active,
+.link:focus {
+  color: var(--secondary-text-color);
+}
+
+.link:hover {
+  color: var(--disabled-or-inputs-text-color);
 }
 
 .pages {

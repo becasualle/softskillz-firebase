@@ -12,22 +12,25 @@ interface Props {
 const PostCard: NextPage<Props> = ({ post }) => {
   const dispatch = useAppDispatch();
   const cardText =
-    post.text.length > 140 ? post.text.slice(0, 141) + "..." : post.text;
+    post.description.length > 140
+      ? post.description.slice(0, 141) + "..."
+      : post.description;
 
   return (
     <article className={styles.post}>
       <div className={styles["post-text"]}>
-        <Link href={`/posts/${encodeURIComponent(post.id)}`}>
+        <Link href={`/notes/${encodeURIComponent(post.id)}`}>
           <h3 className="post-text__title link">{post.title}</h3>
         </Link>
         <p className={styles["post-text__para"]}>{cardText}</p>
       </div>
       <div className={styles["post-actions"]}>
-        <Button>
+        {/* TODO: обновить страницу редактирования под новую форму и раскомментить кнопку */}
+        {/* <Button>
           <Link href={`/notes/edit/${encodeURIComponent(post.id)}`}>
             редактировать
           </Link>
-        </Button>
+        </Button> */}
         <Button
           type="danger"
           onClick={() => {

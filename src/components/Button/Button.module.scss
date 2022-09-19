@@ -44,6 +44,15 @@
     }
   }
 
+  &--primary {
+    background-color: var(--primary);
+    border: 1px solid var(--primary);
+    // &:hover {
+    //   background-color: var(--attention);
+    //   color: #fff;
+    // }
+  }
+
   &--disabled {
     border-color: var(--light-gray-color);
     background-color: var(--light-gray-color);

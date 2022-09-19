@@ -7,6 +7,7 @@ import { useGlobalContext } from "../../context";
 import { useRouter } from "next/router";
 import { auth } from "../../firebase-config";
 import { fetchAllNotes, selectNotes } from "../../features/posts/notesSlice";
+import styles from "./index.module.scss";
 
 interface Props {}
 
@@ -37,9 +38,15 @@ const Posts: NextPage<Props> = () => {
   });
 
   return (
-    <section className="posts">
+    <section className="posts py-3">
       <SubHeader title="Прорабатывайте свои установки" />
-      <input type="text" value={searchText} onChange={handleSearch} />
+      <input
+        type="text"
+        value={searchText}
+        onChange={handleSearch}
+        className={styles.posts__search}
+        placeholder="Поиск по заголовкам записей"
+      />
       {filteredNotes.length ? (
         <PostsGrid posts={filteredNotes} />
       ) : (
