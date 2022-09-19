@@ -33,8 +33,6 @@ export interface Note extends PostNote {
   id: string;
 }
 
-
-
 export interface NotesState {
   notes: Note[];
   status: "idle" | "loading" | "failed";
@@ -100,7 +98,7 @@ export const defaultNote = {
   emotion: "",
   emotePower: "",
   autoThoughts: "",
-  distortions: initialDistortions,
+  distortions: [],
   thoughtAnalyze: "",
   rationalThoughts: "",
 };

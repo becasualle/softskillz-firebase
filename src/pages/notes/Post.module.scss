@@ -1,0 +1,40 @@
+.post {
+  &-part:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+
+
+  &-labels {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    flex-wrap: wrap;
+    max-width: 50%;
+
+    span {
+      display: inline-block;
+      border-radius: var(--image-radius);
+      font-size: .875rem;
+      font-weight: 600;
+      color: white;
+      padding: var(--gap-8);
+      white-space: no-wrap;
+      &:not(:last-child){
+        margin-right: .375rem;
+      }
+    }
+
+    &__emote {
+      background-color: var(--bg-purple-accent);
+
+    }
+  
+    &__distortion {
+      background-color: var(--bg-green-accent);
+    }
+  }
+
+
+
+}

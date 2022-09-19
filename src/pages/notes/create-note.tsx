@@ -5,15 +5,19 @@ import { addDoc, collection } from "firebase/firestore";
 import { db, auth } from "../../firebase-config";
 import { useRouter } from "next/router";
 import { useGlobalContext } from "../../context";
-import { Author, PostNote, defaultNote } from "../../features/posts/notesSlice";
+import {
+  Author,
+  defaultNote,
+  initialDistortions,
+} from "../../features/posts/notesSlice";
 import Button from "../../components/Button";
 import dayjs from "dayjs";
 
 interface Props {}
 
 const createNote: NextPage<Props> = () => {
-  const [noteContent, setNoteContent] = useState({ title: "", text: "" });
-  const [note, setNote] = useState(defaultNote);
+  const initialNote = { ...defaultNote, distortions: initialDistortions };
+  const [note, setNote] = useState(initialNote);
 
   const router = useRouter();
 
