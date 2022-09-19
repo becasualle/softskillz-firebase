@@ -58,8 +58,8 @@ const createNote: NextPage<Props> = () => {
     },
     { name: "Усиление негатива", example: "Я абсолютно все загубил " },
     {
-      name: "Ментальный фильтр",
-      example: "Они так сказали просто из вежливости",
+      name: "Минимизация позитива",
+      example: "Они так говорят просто из вежливости",
     },
     { name: "Навешивание ярлыков", example: "Если я ошибся, значит, я идиот" },
     {
@@ -73,8 +73,8 @@ const createNote: NextPage<Props> = () => {
   ];
 
   const renderedDistortions = cognitiveDistortions.map((distortion) => (
-    <div className="distortion-group" key={distortion.example}>
-      <div className="distortion-check">
+    <div className={styles["distortion-group"]} key={distortion.example}>
+      <div className={styles["distortion-check"]}>
         <input type="checkbox" name={distortion.name} id={distortion.name} />
         <label htmlFor={distortion.name}>{distortion.name}</label>
       </div>
@@ -142,14 +142,14 @@ const createNote: NextPage<Props> = () => {
           />
         </div>
         <div className={styles["input-group"]}>
-          <div className="distortions-description">
+          <div className={styles["distortion-description"]}>
             <p>Когнитивные искажения</p>
             <small>
               Выберите те когнитивные искажения, которые вы нашли в своих
               автоматических мыслях:
             </small>
           </div>
-          {renderedDistortions}
+          <div className={styles["distortion-list"]}>{renderedDistortions}</div>
         </div>
         <div className={styles["input-group"]}>
           <label htmlFor="thoughtAnalyze">Анализ автоматических мыслей</label>
