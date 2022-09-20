@@ -13,7 +13,7 @@ import {
 import Button from "../../components/Button";
 import dayjs from "dayjs";
 
-interface Props {}
+interface Props { }
 
 const createNote: NextPage<Props> = () => {
   const initialNote = { ...defaultNote, distortions: initialDistortions };
