@@ -5,6 +5,7 @@ import { useGlobalContext } from "../../context";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase-config";
 import { useRouter } from "next/router";
+import Button from "../../components/Button";
 
 const Header: React.FC = () => {
   const { isAuth, setIsAuth } = useGlobalContext();
@@ -21,13 +22,15 @@ const Header: React.FC = () => {
     <nav className={styles.nav}>
       <div className={styles.logo}>
         <Link href="/">
-          <a className={styles.link}>Logo</a>
+          <a>SoftSkillz</a>
         </Link>
       </div>
       <div className={styles.pages}>
-        <Link href="/">
-          <a className={styles.link}>Главная</a>
-        </Link>
+        {isAuth && (
+          <Link href="/">
+            <a className={styles.link}>Главная</a>
+          </Link>
+        )}
         {isAuth && (
           <Link href="/notes">
             <a className={styles.link}>Записи</a>
@@ -38,21 +41,21 @@ const Header: React.FC = () => {
             <a className={styles.link}>Создать</a>
           </Link>
         )}
-        <Link href="/articles">
-          <a className={styles.link}>Статьи</a>
-        </Link>
       </div>
       {!isAuth ? (
-        <Link href="/login" className={`${styles.auth} ${styles.link}`}>
-          <a className={styles.link}>Войти</a>
-        </Link>
+        <Button type="primary">
+          <Link href="/login" className={`${styles.auth}`}>
+            <a>Войти</a>
+          </Link>
+        </Button>
       ) : (
-        <button
+        <Button
           onClick={signUserOut}
-          className={`${styles.auth} ${styles.link}`}
+          className={`${styles.auth}`}
+          type="hollow"
         >
-          <a className={styles.link}> Выйти </a>
-        </button>
+          Выйти
+        </Button>
       )}
     </nav>
   );

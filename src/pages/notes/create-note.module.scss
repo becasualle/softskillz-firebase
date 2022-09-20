@@ -1,54 +1,44 @@
-.createPostPage {
-  width: 100%;
-  height: calc(99vh - var(--nav-height) * 2);
-  display: grid;
-  place-items: center;
-}
+@import "../../assets/styles/mixins";
 
-.cpContainer {
-  width: 500px;
-  height: auto;
-  padding: 20px;
-  background-color: black;
-  border-radius: 12px;
-  color: white;
-  display: flex;
-  flex-direction: column;
-
-  h1 {
-    text-align: center;
-  }
-
+.cbt-form {
+  max-width: 600px;
+  margin: 0 auto;
   label {
-    font-size: 25px;
-  }
-
-  .inputGp {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    input {
-      height: 40px;
-    }
-    textarea {
-      height: 150px;
-    }
-    input,
-    textarea {
-      font-size: 18px;
-      border: none;
-      border-radius: 2px;
-      padding: 5px;
-      margin-top: 5px;
-    }
-  }
-
-  button {
-    margin-top: 20px;
-    height: 40px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 18px;
+    font-weight: 600;
   }
 }
+
+.input-group {
+  margin-bottom: 2rem;
+}
+
+.distortion {
+  &-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    @include media('sm'){
+      grid-template-columns: 1fr;
+    }
+  }
+  &-description {
+    // background-color: black;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  &-group {
+    &:not(:last-child){
+      margin-bottom: var(--gap-8);
+    }
+  }
+  &-check {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-8);
+
+    label {
+      margin-bottom: 0;
+    }
+  }
+}
+

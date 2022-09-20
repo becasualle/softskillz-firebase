@@ -4,9 +4,27 @@ import { AppState } from "../../app/store";
 import { auth, db } from "../../firebase-config";
 import { doc, deleteDoc } from "firebase/firestore";
 
+export interface Author {
+  name: string;
+  email: string;
+  id: string;
+}
+
+export interface Distortion {
+  val: string;
+  checked: boolean;
+  example: string;
+}
+
 export interface PostNote {
   title: string;
-  text: string;
+  description: string;
+  emotion: "",
+  emotePower: "",
+  autoThoughts: "",
+  distortions: string[],
+  thoughtAnalyze: "",
+  rationalThoughts: "",
   author: Author;
   createdAt: string;
 }
@@ -15,27 +33,74 @@ export interface Note extends PostNote {
   id: string;
 }
 
-export interface Author {
-  name: string;
-  email: string;
-  id: string;
-}
-
 export interface NotesState {
   notes: Note[];
   status: "idle" | "loading" | "failed";
 }
 
-export const initialNote: Note = {
-  id: "",
-  title: "",
-  text: "",
-  author: {
-    name: "",
-    email: "",
-    id: "",
+export const initialDistortions: Distortion[] = [
+  {
+    val: "Катастрофизация",
+    checked: false,
+    example: "Что если случится худшее?",
   },
-  createdAt: "",
+  {
+    val: "Черно-белое мышление",
+    checked: false,
+    example: "Я полный неудачник",
+  },
+  {
+    val: "Эмоциональное рассуждение",
+    checked: false,
+    example: "Я так чувствую, стало быть это правда",
+  },
+  {
+    val: "Усиление негатива",
+    checked: false,
+    example: "Я абсолютно все загубил ",
+  },
+  {
+    val: "Минимизация позитива",
+    checked: false,
+    example: "Они так говорят просто из вежливости",
+  },
+  {
+    val: "Навешивание ярлыков",
+    checked: false,
+    example: "Если я ошибся, значит, я идиот",
+  },
+  {
+    val: "Предсказание будущего",
+    checked: false,
+    example: "Я наверняка провалю мой экзамен",
+  },
+  {
+    val: "Чтение мыслей",
+    checked: false,
+    example: "Он думает, что я не справлюсь",
+  },
+  { val: "Персонализация", checked: false, example: "Это всё из-за меня" },
+  {
+    val: "Обвинение других",
+    checked: false,
+    example: "Это они во всем виноваты",
+  },
+  {
+    val: "Чрезмерное обобщение",
+    checked: false,
+    example: "Мне вечно не везет",
+  },
+];
+
+export const defaultNote = {
+  title: "",
+  description: "",
+  emotion: "",
+  emotePower: "",
+  autoThoughts: "",
+  distortions: [],
+  thoughtAnalyze: "",
+  rationalThoughts: "",
 };
 
 // create initial state with default values

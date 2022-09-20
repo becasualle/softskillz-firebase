@@ -1,4 +1,4 @@
-@import "../assets/styles/mixins";
+@import "../../assets/styles/mixins";
 
 .button {
   display: inline-flex;
@@ -36,12 +36,21 @@
 
   &--danger {
     background-color: transparent;
-    border: 1px solid var(--danger-color);
-    color: var(--danger-color);
+    border: 1px solid var(--attention);
+    color: var(--attention);
     &:hover {
-      background-color: var(--danger-color);
+      background-color: var(--attention);
       color: #fff;
     }
+  }
+
+  &--primary {
+    background-color: var(--primary);
+    border: 1px solid var(--primary);
+    // &:hover {
+    //   background-color: var(--attention);
+    //   color: #fff;
+    // }
   }
 
   &--disabled {
