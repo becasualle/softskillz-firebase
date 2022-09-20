@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import styles from "../create-note.module.scss";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { useRouter } from "next/router";
-import { initialNote, Note } from "../../../features/posts/notesSlice";
+import { defaultNote, Note } from "../../../features/posts/notesSlice";
 import { useGlobalContext } from "../../../context";
 import { db } from "../../../firebase-config";
 
@@ -14,7 +14,7 @@ interface Props {
 const editNote: NextPage<Props> = ({ postId }) => {
   const router = useRouter();
   const { isAuth } = useGlobalContext();
-  const [note, setNote] = useState(initialNote);
+  const [note, setNote] = useState(defaultNote);
   const noteRef = doc(db, "notes", postId);
 
   const updateNote = async () => {
@@ -60,10 +60,10 @@ const editNote: NextPage<Props> = ({ postId }) => {
           <label htmlFor="post">Ситуация</label>
           <textarea
             placeholder="Ситуация..."
-            value={note.text}
+            value={note.description}
             id="post"
             name="post"
-            onChange={(e) => setNote({ ...note, text: e.target.value })}
+            onChange={(e) => setNote({ ...note, description: e.target.value })}
           />
         </div>
         <button onClick={updateNote}> Обновить запись </button>
