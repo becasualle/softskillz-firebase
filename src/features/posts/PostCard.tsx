@@ -25,12 +25,11 @@ const PostCard: NextPage<Props> = ({ post }) => {
         <p className={styles["post-text__para"]}>{cardText}</p>
       </div>
       <div className={styles["post-actions"]}>
-        {/* TODO: обновить страницу редактирования под новую форму и раскомментить кнопку */}
-        {/* <Button>
+        <Button>
           <Link href={`/notes/edit/${encodeURIComponent(post.id)}`}>
             редактировать
           </Link>
-        </Button> */}
+        </Button>
         <Button
           type="danger"
           onClick={() => {
