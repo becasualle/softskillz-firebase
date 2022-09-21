@@ -17,7 +17,7 @@ interface Props {
 const editNote: NextPage<Props> = ({ postId }) => {
   const router = useRouter();
   const { isAuth } = useGlobalContext();
-  const initialNote = { ...defaultNote, distortions: initialDistortions };
+  const initialNote = JSON.parse(JSON.stringify(defaultNote));
   const [note, setNote] = useState(initialNote);
   const noteRef = doc(db, "notes", postId);
 

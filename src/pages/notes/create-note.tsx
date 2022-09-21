@@ -8,7 +8,6 @@ import { useGlobalContext } from "../../context";
 import {
   Author,
   defaultNote,
-  initialDistortions,
 } from "../../features/posts/notesSlice";
 import Button from "../../components/Button";
 import dayjs from "dayjs";
@@ -16,9 +15,8 @@ import dayjs from "dayjs";
 interface Props { }
 
 const createNote: NextPage<Props> = () => {
-  const initialNote = { ...defaultNote, distortions: initialDistortions };
+  const initialNote = JSON.parse(JSON.stringify(defaultNote));
   const [note, setNote] = useState(initialNote);
-
   const router = useRouter();
 
   const notesCollectionRef = collection(db, "notes");

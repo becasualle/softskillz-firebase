@@ -14,7 +14,7 @@ type Props = {
 const Note: NextPage<Props> = ({ postId }) => {
   const router = useRouter();
   const { isAuth } = useGlobalContext();
-  const [note, setNote] = useState(defaultNote);
+  const [note, setNote] = useState({ ...defaultNote, distortions: [] });
   const noteRef = doc(db, "notes", postId);
 
   useEffect(() => {

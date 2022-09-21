@@ -19,12 +19,12 @@ export interface Distortion {
 export interface PostNote {
   title: string;
   description: string;
-  emotion: "",
-  emotePower: "",
-  autoThoughts: "",
-  distortions: string[],
-  thoughtAnalyze: "",
-  rationalThoughts: "",
+  emotion: "";
+  emotePower: "";
+  autoThoughts: "";
+  distortions: string[];
+  thoughtAnalyze: "";
+  rationalThoughts: "";
   author: Author;
   createdAt: string;
 }
@@ -96,9 +96,9 @@ export const defaultNote = {
   title: "",
   description: "",
   emotion: "",
-  emotePower: "",
+  emotePower: "5",
   autoThoughts: "",
-  distortions: [],
+  distortions: initialDistortions,
   thoughtAnalyze: "",
   rationalThoughts: "",
 };
